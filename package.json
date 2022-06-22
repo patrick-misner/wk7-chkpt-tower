@@ -1,0 +1,16 @@
+
+  {
+    "name": "wk7-chkpt-tower",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "npm run setup:server",
+      "setup:app": "npm run setup:server && npm run setup:client",
+      "setup:client": "cd wk7-chkpt-tower.client && npm i",
+      "setup:server": "cd wk7-chkpt-tower && npm i",
+      "start": "node wk7-chkpt-tower/index.js"
+    },
+    "engines": {
+      "node": "^14.17.0"
+    }
+  }
+  
