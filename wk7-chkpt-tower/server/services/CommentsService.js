@@ -4,7 +4,7 @@ import { eventsService } from "./EventsService"
 
 class CommentsService{
   async getAll(query = {}){
-    let comments = await dbContext.Comments.find(query).populate('creator', 'name picture')
+    let comments = await dbContext.Comments.find(query).sort({ createdAt: -1 }).populate('creator', 'name picture')
     return comments
   }
 
@@ -12,6 +12,7 @@ class CommentsService{
   async create(commentData){
     let comment = await dbContext.Comments.create(commentData)
     await comment.populate('creator', 'name picture')
+    await comment.populate('event')
     return comment
     }
   async edit(commentId, update){
@@ -26,12 +27,12 @@ class CommentsService{
   }
 
   async delete(eventId, userId){
-    const towerEvent = await dbContext.Comments.findById(eventId)
-    if (towerEvent.creatorId.toString() != userId){
+    const comment = await dbContext.Comments.findById(eventId)
+    if (comment.creatorId.toString() != userId){
       throw new BadRequest("You don't have permission to delete this event")
     }
-    await towerEvent.remove()
-    return `deleted event ${towerEvent.name}`
+    await comment.remove()
+    return `deleted comment`
   }
   }
 

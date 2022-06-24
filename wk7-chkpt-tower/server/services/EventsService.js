@@ -3,7 +3,7 @@ import { dbContext } from "../db/DbContext"
 
 class EventsService{
   async getAll(query = {}){
-    let events = await dbContext.Events.find(query)
+    let events = await dbContext.Events.find(query).sort({ startDate: 1 })
     .populate('creator', 'name picture')
     return events
   }

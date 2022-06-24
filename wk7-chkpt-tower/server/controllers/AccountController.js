@@ -1,5 +1,7 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
+import { commentsService } from "../services/CommentsService"
+import { eventsService } from "../services/EventsService"
 import { ticketsService } from "../services/TicketsService"
 import BaseController from '../utils/BaseController'
 
@@ -27,4 +29,5 @@ async getTickets(req, res, next){
       next(error)
     }
   }
+
 }

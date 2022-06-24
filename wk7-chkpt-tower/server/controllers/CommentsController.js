@@ -16,8 +16,8 @@ export class CommentsController extends BaseController {
   async create(req, res, next){
     try {
       req.body.creatorId = req.userInfo.id
-      const towerEvent = await commentsService.create(req.body)
-      return res.send(towerEvent)
+      const comment = await commentsService.create(req.body)
+      return res.send(comment)
     } catch (error) {
       next(error)
     }
