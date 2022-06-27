@@ -24,6 +24,12 @@ class EventsService {
     AppState.activeEvent = res.data
   }
 
+  async cancelEvent(towerEvent){
+    towerEvent.isCanceled = true
+    const res = await api.delete('api/events/' + towerEvent.id)
+    logger.log('is cancelled?', res.data)
+  }
+
   async createEvent(towerEvent){
     
     const res = await api.post('api/events', towerEvent)

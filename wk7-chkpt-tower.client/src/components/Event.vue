@@ -4,18 +4,23 @@
     <div @click="selectEvent" class="bg-secondary elevation-2 rounded text-light m-3 p-2 wrapper selectable grow" :style="`background-image: url('${towerEvent.coverImg}'); background-size: cover; overflow: hidden;`">
       <div class="event-card">
         <div>
-            <span>{{ towerEvent.name }}</span>
+            <span><b>{{ towerEvent.name }}</b></span>
       </div>
             <div>
-        <span>{{ towerEvent.location }}</span>
+        <span><b>{{ towerEvent.location }}</b></span>
       </div>
             <div>
-        <span>{{ towerEvent.startDate }}</span>
+        <span><b>{{ towerEvent.startDate }}</b></span>
       </div>
       <div class="text-end">
-        <span>{{ towerEvent.capacity }} spots left</span>
+        <span><b>{{ towerEvent.capacity }} spots left</b></span>
       </div>
-
+      <div v-if="towerEvent.isCanceled" class="bg-danger text-light text-shadow text-center">
+        <b>Event is Cancelled</b>
+      </div>
+            <div v-if="towerEvent.capacity == 0" class="bg-danger text-light text-shadow text-center">
+        <b>Event is sold out</b>
+      </div>
       </div>
         
       
@@ -53,8 +58,8 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50%;
-
+  height: 40%;
+  backdrop-filter: blur(2px);
   background: #656565d1
 }
 

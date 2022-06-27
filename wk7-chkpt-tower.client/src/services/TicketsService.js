@@ -11,6 +11,19 @@ async getTickets(query = ''){
 async getTicket(ticketData){
   const res = await api.post('api/tickets', ticketData)
   AppState.tickets.push(res.data)
+  AppState.activeEvent.capacity--
+}
+
+async getUserTickets(ticketData){
+  const res = await api.get('account/tickets')
+  AppState.tickets = res.data
+  logger.log('getusertickets', res.data)
+  AppState.tickets = AppState.tickets.filter(t => t.event.isCanceled == false)
+}
+async cancelTicket(ticketId){
+  const res = await api.delete('api/tickets/' + ticketId)
+  AppState.tickets = AppState.tickets.filter(t => t.id != ticketId)
+
 }
 }
 

@@ -9,7 +9,7 @@
            <Navbar />
            <!-- <Login /> -->
         </div>
-        <div class="col-md-10 order-md-0 bg-dark">
+        <div class="col-md-10 order-md-0 bg-dark vh-100">
           <router-view />
         </div>
       </div>

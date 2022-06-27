@@ -4,10 +4,11 @@
     <div class="bg-secondary elevation-2 rounded text-light m-3">
       <div class="p-3 d-flex justify-content-between">
         
-        <h5>All</h5>
-        <h5>Expos</h5>
-        <h5>Conventions</h5>
-        <h5>Exhibits</h5>
+        <h5 @click="filterEvent = ''" class="selectable">All</h5>
+        <h5 @click="filterEvent = 'concert'" class="selectable">Concerts</h5>
+        <h5 @click="filterEvent = 'convention'" class="selectable">Conventions</h5>
+        <h5 @click="filterEvent = 'sport'" class="selectable">Sports</h5>
+        <h5 @click="filterEvent = 'digital'" class="selectable">Digital</h5>
       </div>
     </div>
   </div>
@@ -19,7 +20,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from "@vue/runtime-core"
+import { computed, onMounted, ref } from "@vue/runtime-core"
 import { eventsService } from '../services/EventsService'
 import { logger } from "../utils/Logger"
 import Pop from "../utils/Pop"
@@ -27,6 +28,7 @@ import { AppState } from "../AppState"
 export default {
   name: 'Home',
   setup() {
+    const filterEvent = ref('')
     onMounted(async () => {
       try {
         await eventsService.getEvents()
@@ -37,7 +39,9 @@ export default {
       
     })
     return {
-      events: computed(() => AppState.events)
+      filterEvent,
+      events: computed(() => AppState.events.filter(e => filterEvent.value ? e.type == filterEvent.value : true))
+      
     }
   }
 }

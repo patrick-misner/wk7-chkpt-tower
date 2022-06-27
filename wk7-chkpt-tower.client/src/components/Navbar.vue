@@ -16,7 +16,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto flex-column">
-
+        <li>
+          <img src="https://i.imgur.com/hESF39n.png" class="img-fluid py-3" alt="">
+        </li>
         <li>
           <Login />
         </li>
@@ -25,7 +27,7 @@
           
           <router-link
             :to="{ name: 'Home' }"
-            class="btn text-success lighten-30 selectable text-uppercase"
+            class="btn text-success lighten-30 selectable text-uppercase pt-5"
           >
             Home
           </router-link>

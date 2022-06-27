@@ -10,6 +10,26 @@
     <div class="bg-secondary elevation-2 rounded text-light m-3">
       <div class="p-3 d-flex justify-content-around">
         
+        <h3>Events I am attending</h3>
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+ <Ticket v-for="t in tickets" :key="t.id" :ticket="t" />
+</div>
+
+
+
+
+  <div class="row">
+  <div class="col-md-12">
+    <div class="bg-secondary elevation-2 rounded text-light m-3">
+      <div class="p-3 d-flex justify-content-around">
+        
         <h3>My Events</h3>
           
       </div>
@@ -21,17 +41,7 @@
   <Event v-for="e in events" :key="e.id" :towerEvent='e'/>
 </div>
 
-  <div class="row">
-  <div class="col-md-12">
-    <div class="bg-secondary elevation-2 rounded text-light m-3">
-      <div class="p-3 d-flex justify-content-around">
-        
-        <h3>Attending Events</h3>
-          
-      </div>
-    </div>
-  </div>
-</div>
+
 
 </template>
 
@@ -41,22 +51,28 @@ import { AppState } from '../AppState'
 import Pop from "../utils/Pop"
 import { logger } from "../utils/Logger"
 import { eventsService } from "../services/EventsService"
+import { ticketsService } from "../services/TicketsService"
+import Ticket from "../components/Ticket.vue"
 export default {
-  name: 'Account',
-  setup() {
-    watchEffect(async () => {
-      try {
-        await eventsService.getUserEvents()
-      } catch (error) {
-        logger.error(error)
-        Pop.toast(error.message, 'error')
-      }
-    })
-    return {
-      account: computed(() => AppState.account),
-      events: computed(()=> AppState.events)
-    }
-  }
+    name: "Account",
+    setup() {
+        watchEffect(async () => {
+            try {
+                await eventsService.getUserEvents(AppState.account.id);
+                await ticketsService.getUserTickets(AppState.account.id);
+            }
+            catch (error) {
+                logger.error(error);
+                Pop.toast(error.message, "error");
+            }
+        });
+        return {
+            account: computed(() => AppState.account),
+            events: computed(() => AppState.events),
+            tickets: computed(() => AppState.tickets),
+        };
+    },
+    components: { Ticket }
 }
 </script>
 
