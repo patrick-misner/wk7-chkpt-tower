@@ -56,7 +56,7 @@ import Ticket from "../components/Ticket.vue"
 export default {
     name: "Account",
     setup() {
-        watchEffect(async () => {
+        (async () => {
             try {
                 await eventsService.getUserEvents(AppState.account.id);
                 await ticketsService.getUserTickets(AppState.account.id);

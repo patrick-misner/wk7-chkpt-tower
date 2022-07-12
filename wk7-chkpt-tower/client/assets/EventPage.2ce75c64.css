@@ -1,0 +1,1 @@
+.wrapper{position:relative;height:300px;max-height:300px}.event-card{position:absolute;z-index:10;bottom:0;left:0;width:100%;height:50%;background:#656565d1}.grow{transition:all .2s ease-in-out}.grow:hover{transform:scale(1.05)}.attend-img{max-width:50px;max-height:50px;border-radius:50%}.cover-img{width:300px}
