@@ -1,8 +1,5 @@
 <template>
-
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
     <button
       class="navbar-toggler"
       type="button"
@@ -17,32 +14,35 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto flex-column">
         <li>
-          <img src="https://i.imgur.com/hESF39n.png" class="img-fluid py-3" alt="">
+          <img
+            src="https://i.imgur.com/hESF39n.png"
+            class="img-fluid py-3"
+            alt=""
+          />
         </li>
         <li>
           <Login />
         </li>
         <li>
-             
-          
           <router-link
             :to="{ name: 'Home' }"
-            class="btn text-success lighten-30 selectable text-uppercase pt-5"
+            class="btn text-success lighten-30 selectable text-uppercase mt-3"
           >
             Home
           </router-link>
-               
         </li>
         <li>
-
-                    <button @click="createModal" class="btn text-success lighten-30 selectable text-uppercase">Create Event</button>
+          <button
+            @click="createModal"
+            class="btn text-success lighten-30 selectable text-uppercase"
+          >
+            Create Event
+          </button>
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
-
     </div>
   </nav>
-          
 </template>
 
 <script>
@@ -50,7 +50,7 @@ import { Modal } from "bootstrap";
 export default {
   setup() {
     return {
-      createModal(){
+      createModal() {
         Modal.getOrCreateInstance(document.getElementById("event-modal")).show()
       }
     };
