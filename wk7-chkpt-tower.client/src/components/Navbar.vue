@@ -40,7 +40,6 @@
           </button>
         </li>
       </ul>
-      <!-- LOGIN COMPONENT HERE -->
     </div>
   </nav>
 </template>

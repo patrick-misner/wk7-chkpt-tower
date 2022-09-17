@@ -1,6 +1,5 @@
 <template>
   <form @submit.prevent="createEvent">
-    <h1 class="text-dark">Create Event</h1>
     <div class="col-12">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"
@@ -12,6 +11,7 @@
           class="form-control"
           id="exampleFormControlInput1"
           placeholder="Event name..."
+          required
         />
       </div>
     </div>
@@ -27,6 +27,7 @@
           id="exampleFormControlTextarea1"
           placeholder="Event description..."
           rows="3"
+          required
         ></textarea>
       </div>
     </div>
@@ -40,6 +41,7 @@
           class="form-control"
           id="exampleFormControlInput1"
           placeholder="Img Url..."
+          required
         />
       </div>
     </div>
@@ -54,6 +56,7 @@
           type="date"
           class="form-control"
           id="exampleFormControlInput1"
+          required
         />
       </div>
     </div>
@@ -66,6 +69,7 @@
         <input
           v-model="towerEvent.location"
           type="text"
+          placeholder="Location..."
           class="form-control"
           id="exampleFormControlInput1"
         />
@@ -80,8 +84,10 @@
         <input
           v-model="towerEvent.capacity"
           type="number"
+          placeholder="Capacity..."
           class="form-control"
           id="exampleFormControlInput1"
+          required
         />
       </div>
     </div>
@@ -92,8 +98,9 @@
           v-model="towerEvent.type"
           class="form-select"
           aria-label="Default select example"
+          required
         >
-          <option selected>Select Type</option>
+          <option selected>Select Event Type</option>
           <option value="concert">Concert</option>
           <option value="convention">Convention</option>
           <option value="sport">Sport</option>
