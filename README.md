@@ -31,7 +31,6 @@
 - [Email](mailto:misner.patrick@gmail.com?subject=Hi "Hi!")
 - [Website](https://patrick-misner.github.io/ "Patrick Misner")
 
-# Screenshots
 
 ## Demo
 
