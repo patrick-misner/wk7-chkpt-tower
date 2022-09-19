@@ -7,7 +7,7 @@
 
 - [Repo](https://github.com/patrick-misner/wk7-chkpt-tower "Repository")
 
-- [Live](https://tower-pm.herokuapp.com/#/ "Live View")
+- [Live (Heroku, may take some time to load)](https://tower-pm.herokuapp.com/#/ "Live View")
 
 
 ## Built With
